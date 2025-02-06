@@ -62,5 +62,8 @@ v = ['1', '2','3', '4', '5','6']
 n = [a1, a2, a3, a4, a5,a6]
 
 plt.bar(v, n, color='#33CCCC' )
+plt.xlabel("Значение")
+plt.ylabel("Коичество бросков")
+
 plt.title('КУБИК')
 plt.show()

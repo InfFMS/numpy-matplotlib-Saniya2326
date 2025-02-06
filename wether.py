@@ -8,3 +8,50 @@
 # Линейный график температуры по дням.
 # Гистограмму распределения температуры.
 # Подсветку "холодных" и "жарких" дней на линейном графике.
+
+import matplotlib.pyplot as plt
+
+import numpy as np
+x = []
+v = []
+n = []
+m =[]
+import random
+from random import randint
+b = 0
+j = 0
+
+for i in range (0, 365):
+    a = randint(-10, 35)
+    if a > 25:
+        j +=1
+    b = b+a
+    m.append(a)
+
+for i in range(1, 365):
+    if m[i]<0 and m[i-1]<0:
+
+        x.append(m[i])
+
+
+
+print((b+a)/365, len(x), x)
+
+for i in range (1, 366):
+    n.append(i)
+
+
+
+fig, axs = plt.subplots(1, 2, figsize=(10,4))
+
+axs[0].bar(n, m, color='#2e264a')
+axs[0].set_title('Погода')
+axs[0].set_xlabel('Дни')
+axs[0].set_ylabel('Градусы')
+
+axs[1].plot(n,m)
+axs[1].set_title('Распределение жарких дней')
+axs[1].set_xlabel('Дни')
+axs[1].set_ylabel('Градусы')
+
+plt.show()
