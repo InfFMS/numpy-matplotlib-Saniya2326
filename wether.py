@@ -8,3 +8,69 @@
 # Линейный график температуры по дням.
 # Гистограмму распределения температуры.
 # Подсветку "холодных" и "жарких" дней на линейном графике.
+
+import matplotlib.pyplot as plt
+
+import numpy as np
+x = []
+v = []
+n = []
+m =[]
+import random
+from random import randint
+b = 0
+j = 0
+w = 0
+p =[]
+for i in range (0, 365):
+    a = randint(-10, 35)
+
+    if a > 25:
+        j +=1
+    b = b+a
+    m.append(a)
+
+for i in range(1, 365):
+    if m[i]<0 and m[i-1]<0:
+
+        x.append(m[i])
+
+
+for i in range(-10,36):
+
+
+    p.append(m.count(i))
+
+
+
+
+print((b+a)/365, len(x), p)
+
+for i in range (1, 366):
+    n.append(i)
+
+
+q = []
+for i in range (-10, 36):
+    q.append(i)
+
+
+fig, axs = plt.subplots(1, 2, figsize=(10,4))
+axs[0].plot(n, m, color='#2e264a')
+for i in range (0, 365):
+    if m[i] > 0:
+        axs[0].scatter(i, m[i], color='red')
+    if m[i]< 0:
+        axs[0].scatter(i, m[i], color='blue')
+    if m[i]==0:
+        axs[0].scatter(i, 0, color='purple')
+axs[0].set_title('Погода')
+axs[0].set_xlabel('Дни')
+axs[0].set_ylabel('Градусы')
+
+axs[1].bar(q,p)
+axs[1].set_title('Распределение жарких дней')
+axs[1].set_ylabel('Количество дней')
+axs[1].set_xlabel('Градусы')
+
+plt.show()
