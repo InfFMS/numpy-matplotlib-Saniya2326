@@ -22,10 +22,9 @@ b = 0
 j = 0
 w = 0
 p =[]
-for i in range (1, 366):
+for i in range (0, 365):
     a = randint(-10, 35)
-    if a > 0:
-        plt.scatter(i, a, color='red')
+
     if a > 25:
         j +=1
     b = b+a
@@ -56,9 +55,15 @@ for i in range (-10, 36):
     q.append(i)
 
 
-
 fig, axs = plt.subplots(1, 2, figsize=(10,4))
 axs[0].plot(n, m, color='#2e264a')
+for i in range (0, 365):
+    if m[i] > 0:
+        axs[0].scatter(i, m[i], color='red')
+    if m[i]< 0:
+        axs[0].scatter(i, m[i], color='blue')
+    if m[i]==0:
+        axs[0].scatter(i, 0, color='purple')
 axs[0].set_title('Погода')
 axs[0].set_xlabel('Дни')
 axs[0].set_ylabel('Градусы')

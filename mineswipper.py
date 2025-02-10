@@ -38,13 +38,30 @@ while len(m)!=15:
     data[a][b]=1
 print(m, len(m))
 
-for i in range (0,10):
+for i in range (1,9):
     for j in range(1, 9):
         if data[i][j]==1:
-            data[i][j-1]+=0.3
-            data[i][j+1]+=0.3
+            if data[i][j-1]!=1:
+                data[i][j-1]+=0.2
+            if data[i][j + 1] != 1:
+                data[i][j + 1] += 0.2
+            if data[i - 1][j + 1] != 1:
+                data[i - 1][j + 1] += 0.2
+            if data[i - 1][j] != 1:
+                data[i - 1][j] += 0.2
+            if data[i - 1][j - 1] != 1:
+                data[i - 1][j - 1] += 0.2
+            if data[i + 1][j] != 1:
+                data[i + 1][j] += 0.2
+            if data[i+1][j+1]!=1:
+                data[i+1][j+1]+=0.2
+            if data[i+1][j-1]!=1:
+                data[i+1][j-1]+=0.2
 
-plt.imshow(data, cmap='RdPu')
+for i in range(0,10):
+    if data
+
+plt.imshow(data, cmap='binary')
 
 
 plt.show()
